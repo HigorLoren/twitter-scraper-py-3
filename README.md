@@ -20,9 +20,9 @@ Options
 -------
 
 ```
--d destionation   The Specify destination that will download in <destionation>/<username_[twitter]>.
+-d <destionation>   The Specify destination that will download. <your_destionation>/<username_[twitter]>.
 
--q quiet          Don't show the progress
+-q                  Don't show the progress
 ```
 
 License
