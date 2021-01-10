@@ -1,5 +1,6 @@
-from bs4 import BeautifulSoup
+#!/usr/bin/env python3
 from requests import get
+from bs4 import BeautifulSoup
 from os import makedirs
 from re import search, findall
 import sys
@@ -10,7 +11,8 @@ except IndexError:
     print("You forgot to type the user")
     exit()
 
-twitter_media_url = f'https://twitter.com/{user}/media'
+TWITTER_MEDIA_URL = f'https://twitter.com/{user}/media'
+
 try:
     dest = ''
     for agv in sys.argv:
@@ -28,7 +30,7 @@ except:
     pass
 
 try:
-    html_page = get(twitter_media_url)
+    html_page = get(TWITTER_MEDIA_URL)
     soup = BeautifulSoup(html_page.text, 'html.parser')
 
     images = soup.find_all('img')
@@ -59,7 +61,7 @@ try:
     if not private_profile:
         try:
             path = destination + f'/{user}_[twitter]'
-        except NameError or IndexError:
+        except:
             path = f'./{user}_[twitter]'
 
         try:
